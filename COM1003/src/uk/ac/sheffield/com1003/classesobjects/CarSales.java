@@ -29,11 +29,11 @@ import java.io.File;
 
 public class CarSales {
     public static void main (String[] args) throws Exception {
-	
     	// Set up scanner object to read stock.txt file
     	// which should be located in the ECLIPSE root folder
-    	Scanner file = new Scanner(new File("stock.txt"));
-	
+    	Scanner file = new Scanner(new File("stock2.txt"));
+
+    	
     	// First number in file represents number of cars
     	int nCars = file.nextInt();
 
@@ -42,25 +42,39 @@ public class CarSales {
 
     	// Read each line of the file
     	for (int i=0; i<nCars; i++) {
-
     		// Read each field ...
     		String model = file.next();
     		String colour = file.next();
     		int price = file.nextInt();
+    		int mileage = file.nextInt();
     		boolean sold = file.nextBoolean();
-	    
     		// ...use data to build car object; store in array.
-    		cars[i] = new Car(model, colour, price, sold);	    
+        		cars[i] = new Car(model, colour, price, sold, mileage);
+    		
     	}
+    	file.close();
+    	String anotherCar;
+		do{
+    	Scanner sc = new Scanner(System.in);
+    	System.out.print("min price: ");
+    	int minPrice = sc.nextInt();
+    	System.out.print("max price: ");
+    	int maxPrice = sc.nextInt();
 
     	// Finally, print each of the cars in the array
     	for (int i=0; i<nCars; i++) {
-    		System.out.println(cars[i]);
+    		if(cars[i].getPrice()>=minPrice&&cars[i].getPrice()<=maxPrice && !cars[i].isSold()){
+    		System.out.println("index: "+i+ " "+cars[i]);
     	}
-    	
+    	 }
     	// close the file
-    	file.close();
-
+    	System.out.print("Which index do you want to buy?: ");
+    	int index = sc.nextInt();
+    	cars[index].sellCar();
+    	System.out.print("Do you want to buy another car? [YES/NO]: ");
+    	anotherCar = sc.next();
+    	System.out.println(anotherCar);
+    	} while(anotherCar.equals("YES"));
+		System.out.println("end");
     }
 }
-

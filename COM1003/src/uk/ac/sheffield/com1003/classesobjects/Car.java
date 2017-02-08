@@ -18,10 +18,11 @@ package uk.ac.sheffield.com1003.classesobjects;
 public class Car{
 
     // constructor
-    public Car( String mk, String c, int p, boolean s){
+    public Car( String mk, String c, int p, boolean s, int m){
 	make = mk;
 	colour = c;
 	price = p;
+	mileage = m;
 	sold = s;
     }
     
@@ -37,7 +38,9 @@ public class Car{
     public int getPrice(){
 	return price;
     }
-    
+    public int getMileage(){
+    	return mileage;
+    }
     public boolean isSold() {
 	return sold;
     }
@@ -54,7 +57,7 @@ public class Car{
     // toString: writing a toString method allows object to 
     // be printed using System.out.println(car);
     public String toString() {
-	String outString = "Make="+make+"  Colour="+colour+"  Price="+price;
+	String outString = "Make="+make+"  Colour="+colour+"  Price="+price+"  Mileage: "+mileage;
 	if (sold)
 	    outString+=" [SOLD]";
 	return outString;
@@ -65,4 +68,5 @@ public class Car{
     private String colour;
     private int price;
     private boolean sold;
+    private int mileage;
 }
