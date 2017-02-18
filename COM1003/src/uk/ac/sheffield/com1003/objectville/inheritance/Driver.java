@@ -22,7 +22,7 @@ public class Driver extends Person {
 	}
 	
 	public boolean tooYoungToDrive(){
-		if (age < 17)
+		if (super.ageInYears() < 17)
 			return true;
 		else
 			return false;

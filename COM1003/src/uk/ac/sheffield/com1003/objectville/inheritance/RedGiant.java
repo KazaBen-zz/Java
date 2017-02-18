@@ -34,7 +34,18 @@ public class RedGiant extends Star {
 		super.printInfo();
 		System.out.println("Years to extinction: "+yearsToExtinction);
 	}
-	
+	public void setYearsToExtinction(int x){
+		this.yearsToExtinction = x;
+	}
+	public boolean equals(RedGiant anotherObject){
+		if(this == anotherObject || (anotherObject.getMagnitude()==this.getMagnitude() && anotherObject.getSurfaceTemperature() == this.getSurfaceTemperature() && this.getYearsToExtinction()==anotherObject.getYearsToExtinction())){
+			return true;
+		}
+		else if(anotherObject == null || anotherObject.getClass() != this.getClass()){
+			return false;
+		}
+		return false;
+	}
 	public RedGiant makeCopy(){
 		// makes a copy of the current object
 		return new RedGiant(super.getMagnitude(),super.getSurfaceTemperature(),this.yearsToExtinction);

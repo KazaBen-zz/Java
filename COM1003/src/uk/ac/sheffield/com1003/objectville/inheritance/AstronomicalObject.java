@@ -26,6 +26,9 @@ public class AstronomicalObject {
 	public double getMagnitude() {
 		return magnitude;
 	}
+	public void setMagnitude(double magnitude){
+		this.magnitude = magnitude;
+	}
 	
 	public void printInfo() {
 		System.out.println("Magnitude: "+magnitude);

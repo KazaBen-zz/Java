@@ -1,0 +1,10 @@
+package uk.ac.sheffield.com1003.objectville.inheritance;
+
+public class LectureNotes extends ReadingMatter {
+
+	public LectureNotes(int numPages) {
+		super(numPages);
+		
+	}
+
+}

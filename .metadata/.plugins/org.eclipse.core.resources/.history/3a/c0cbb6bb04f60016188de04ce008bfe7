@@ -1,0 +1,12 @@
+package uk.ac.sheffield.com1003.objectville.inheritance;
+
+public class Week2 {
+
+	public static void main(String[] args) {
+		ReadingMatter matter = new ReadingMatter(200);
+		Newspaper newspaper = new Newspaper(20,"Headline");
+		matter.printInfo();
+		newspaper.printInfo();
+	}
+
+}

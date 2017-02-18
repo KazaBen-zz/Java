@@ -1,0 +1,10 @@
+package uk.ac.sheffield.com1003.objectville.inheritance;
+
+public class Week2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

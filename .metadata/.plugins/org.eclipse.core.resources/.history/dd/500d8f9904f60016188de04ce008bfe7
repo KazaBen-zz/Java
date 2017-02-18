@@ -1,0 +1,13 @@
+package uk.ac.sheffield.com1003.objectville.inheritance;
+
+public class LectureNotes extends ReadingMatter {
+	private int week;
+	public LectureNotes(int numPages, int week) {
+		super(numPages);
+		this.week = week;
+	}
+	
+	public int getWeek(){
+		return week;
+	}
+}
