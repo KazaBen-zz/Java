@@ -1,0 +1,17 @@
+package Vale;
+
+public class Cat extends Animal {
+    public void testClassMethod() {
+        System.out.println("The static method in Cat");
+    }
+    public static void testInstanceMethod() {
+        System.out.println("The instance method in Cat");
+    }
+
+    public static void main(String[] args) {
+        Animal myCat = new Cat();
+        Animal myAnimal = myCat;
+        myCat.testClassMethod();
+        myAnimal.testInstanceMethod();
+    }
+}

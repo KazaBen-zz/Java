@@ -1,0 +1,30 @@
+/*
+ * Book.java  	1.1 21/12/2015
+ *
+ * Copyright (c) University of Sheffield 2016
+ */
+
+/** 
+* Book.java
+* 
+* 
+* @version 1.1 21/12/2015
+* 
+* @author Phil McMinn/Richard Clayton
+*/
+
+package problemsheet2;
+
+public class Book  {
+
+	private String author;
+	
+	public Book(String author) {
+		this.author = author;
+	}
+	
+	public void printInfo() {
+		System.out.println(this.author);
+		}
+}
+

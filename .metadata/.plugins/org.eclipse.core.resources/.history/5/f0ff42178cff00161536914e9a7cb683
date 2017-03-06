@@ -1,0 +1,27 @@
+package Vale;
+class Test {
+	  public static void main(String[] args) {
+	    print(new SuperClass());
+	    print(new SubClass());
+	    print(new SubSubClass());
+	  }
+	  public static void print(SuperClass s){
+	    System.out.println(s.toString());
+	  }
+	}
+	class SuperClass{
+	  public String toString(){
+	    return "Superclass";
+	  }
+	}
+	class SubClass extends SuperClass{
+	  public String toString(){
+	    return "Subclass";
+	  }
+	}
+	 
+	class SubSubClass extends SubClass{
+		 public String toString(){
+			    return "Subsubclass";
+			  }
+	} 

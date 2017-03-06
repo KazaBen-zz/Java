@@ -1,0 +1,15 @@
+package assignment2017;
+
+public class Test {
+
+	public static void main(String[] args) {
+		MyGameState gameState = new MyGameState();
+		gameState.startGame();
+	//	gameState.board[0][0]=0;
+		//gameState.board[gameState.getRows()-1][6]=1;
+		//gameState.board[gameState.getRows()][gameState.getCols()]=0;
+		gameState.move(3);
+		Connect4ConsoleDisplay.display(gameState, gameState.getRows(),gameState.getCols());
+	}
+
+}

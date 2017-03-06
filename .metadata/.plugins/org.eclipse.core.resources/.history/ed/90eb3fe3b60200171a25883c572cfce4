@@ -1,0 +1,89 @@
+package AI.search2;
+import java.util.Arrays;
+
+import java.util.ArrayList;
+
+public class PuzzleState extends SearchState{
+	private int[] puzzle;
+	/**
+	 * constructor
+	 * @param puzzle is the puzzle
+	 */
+	
+	public PuzzleState(int [] puzzle){
+		this.puzzle = puzzle;
+	}
+	
+	// Accessor for puzzle
+	public int[] getPuzlle(){
+		return puzzle;
+	}
+	public boolean goalP(Search searcher) {
+		PuzzleSearch psearcher = (PuzzleSearch) searcher;
+		int[] target = psearcher.getTarget();
+		return(Arrays.equals(puzzle,target));
+	}
+	// Get successors
+	@Override
+	ArrayList<SearchState> getSuccessors(Search searcher) {
+		PuzzleSearch psearcher = (PuzzleSearch) searcher;
+		int[] puzzle = psearcher.getPuzzle();
+		
+		ArrayList<PuzzleState> puzzleList = new ArrayList<PuzzleState>();
+		ArrayList<SearchState> searchList = new ArrayList<SearchState>();
+		int hole = getHole();
+		for(int i=0;i<3;i++){
+			if((hole % 3)!=0){
+				swapAndStore(hole-1, hole, successors);
+			}
+		}
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
+				if(puzzle[i][j] == 0 && i>0){
+					puzzle[i][j]=puzzle[i-1][j];
+					puzzle[i-1][j] = 0;
+					puzzleList.add(new PuzzleState(puzzle));
+					//puzzle[i-1][j]=puzzle[i][j];
+					//puzzle[i][j] = 0;
+				}
+			}
+		}/*
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
+				if(puzzle[i][j] == 0 && j>0){
+					puzzle[i][j]=puzzle[i][j-1];
+					puzzle[i][j-1] = 0;
+					puzzleList.add(new PuzzleState(puzzle));
+					puzzle[i][j-1]=puzzle[i][j];
+					puzzle[i][j] = 0;
+				}
+			}
+		}*/
+		for(PuzzleState ps:puzzleList)searchList.add((SearchState)ps);
+		return searchList;
+	}
+	public void swapAndStore(){
+		int[] puzzleCopy = new int[9];
+		for(int i=0;i<9;i++){
+			puzzleCopy[i] = puzzle[i];
+		}
+	}
+	@Override
+	boolean sameState(SearchState n2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public int getHole(){
+		int holeIndex = -1;
+		for(int i=0;i<9;i++){
+			if(puzzle[i]==0){
+				holeIndex = i;
+			}
+		}
+		return holeIndex;
+	}
+
+	public String toString(){
+		return  System.lineSeparator()+puzzle[0]+" "+ puzzle[1]+" "+ puzzle[2]+ System.lineSeparator()+ puzzle[3]+" "+ puzzle[4]+" "+ puzzle[5]+ System.lineSeparator()+puzzle[6]+" "+ puzzle[7]+" "+ puzzle[8];
+	}
+}

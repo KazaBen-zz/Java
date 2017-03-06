@@ -1,0 +1,11 @@
+package assignment2017;
+
+public class Test {
+
+	public static void main(String[] args) {
+		MyGameState gameState = new MyGameState();
+		Connect4ConsoleDisplay.display(gameState);
+		System.out.println("fuck");
+	}
+
+}

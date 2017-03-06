@@ -1,0 +1,19 @@
+package Vale;
+class Test {
+	  public static void main(String[] args) {
+	    SubClass s = new SubClass(1);
+	  }
+	}
+	class SuperClass{
+	    public SuperClass(int f){ 
+	    int superClassField = f + 1;
+	    System.out.println("SuperClass constructor, field = " + superClassField);
+	  }
+	}
+	class SubClass extends SuperClass{
+		
+	  public SubClass(int f){
+		  super(f);
+	    System.out.println("SubClass constructor, field = " + f);
+	  }
+	}

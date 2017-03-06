@@ -1,0 +1,81 @@
+package AI.search2;
+import java.util.Arrays;
+
+import java.util.ArrayList;
+
+public class PuzzleState extends SearchState{
+	private int[] puzzle;
+	/**
+	 * constructor
+	 * @param puzzle is the puzzle
+	 */
+	
+	public PuzzleState(int [] puzzle){
+		this.puzzle = puzzle;
+	}
+	
+	// Accessor for puzzle
+	public int[] getPuzlle(){
+		return puzzle;
+	}
+	public boolean goalP(Search searcher) {
+		PuzzleSearch psearcher = (PuzzleSearch) searcher;
+		int[] target = psearcher.getTarget();
+		return(Arrays.equals(puzzle,target));
+	}
+	// Get successors
+	@Override
+	ArrayList<SearchState> getSuccessors(Search searcher) {
+		PuzzleSearch psearcher = (PuzzleSearch) searcher;
+		int[] puzzle = psearcher.getPuzzle();
+		
+		ArrayList<PuzzleState> puzzleList = new ArrayList<PuzzleState>();
+		ArrayList<SearchState> searchList = new ArrayList<SearchState>();
+		int hole = getHole();
+		for(int i=0;i<3;i++){
+			if((hole % 3)!=0){
+				swapAndStore(hole-1, hole, puzzleList);
+			}
+		}
+		if(hole != 6 && hole != 7 && hole !=8){
+			swapAndStore(hole + 3, hole, puzzleList);
+		}/*
+		if (hole != 0 && hole != 1 && hole != 2)
+		{
+			swapAndStore(hole - 3, hole, puzzleList);
+		}
+		if (hole != 2 && hole != 5 && hole != 8)
+		{
+			swapAndStore(hole + 1, hole, puzzleList);
+		}*/
+		for(PuzzleState ps:puzzleList)searchList.add((SearchState)ps);
+		return searchList;
+	}
+	public void swapAndStore(int swap1, int swap2, ArrayList<PuzzleState> state){
+		int[] puzzleCopy = new int[9];
+		for(int i=0;i<9;i++){
+			puzzleCopy[i] = puzzle[i];
+		}
+		puzzleCopy[swap1] = puzzle[swap2];
+		puzzleCopy[swap2] = puzzle[swap1];
+		state.add(new PuzzleState(puzzleCopy));
+	}
+	@Override
+	boolean sameState(SearchState n2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public int getHole(){
+		int holeIndex = -1;
+		for(int i=0;i<9;i++){
+			if(puzzle[i]==0){
+				holeIndex = i;
+			}
+		}
+		return holeIndex;
+	}
+
+	public String toString(){
+		return  System.lineSeparator()+puzzle[0]+" "+ puzzle[1]+" "+ puzzle[2]+ System.lineSeparator()+ puzzle[3]+" "+ puzzle[4]+" "+ puzzle[5]+ System.lineSeparator()+puzzle[6]+" "+ puzzle[7]+" "+ puzzle[8];
+	}
+}

@@ -1,0 +1,20 @@
+package problemsheet2;
+
+public class TestItemEquals {
+
+	public static void main(String[] args) {
+		ItemByWeight w1 = new ItemByWeight("w", 5, 150);
+		ItemByWeight w2 = new ItemByWeight("w", 5, 150);
+		Item i3 = new Item("w",5);
+		Book book = new Book("assansa");
+		System.out.println("False expected, Got: "+w2.equals(i3));
+		System.out.println("True expected, Got: "+w1.equals(w2));
+		System.out.println("False expected, Got: " + w1.equals(book));
+		System.out.println("False expected, Got: " + i3.equals(book));
+		Item i1 = new Item("i",5);
+		Item i2 = new Item("i",5);
+		Object i6 = new Item("i",4);
+		System.out.println("False expected. Got: " + i1.equals(i6));
+		System.out.println("True expected, Got: " + i1.equals(i2));
+	}
+}
