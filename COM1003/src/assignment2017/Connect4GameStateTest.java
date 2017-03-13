@@ -28,7 +28,7 @@ public class Connect4GameStateTest {
 	
 	// test for correct initialisation with all board positions empty
 	// and Red given first turn
-	@PlayConnect4 
+	@Test 
 	public void initialisation() {
 		for (int col=0; col < NUM_COLS; col++) {
 			for (int row=0; row < NUM_ROWS; row++) {							
@@ -41,7 +41,7 @@ public class Connect4GameStateTest {
 	}
 	
 	// test for correct initial moves
-	@PlayConnect4 
+	@Test 
 	public void initialMoves() {
 		String checkMoveMsg = "During initial moves";
 		
@@ -50,7 +50,7 @@ public class Connect4GameStateTest {
 	}
 	
 	// test for correct use of ColumnFullException
-	@PlayConnect4(expected=ColumnFullException.class) 
+	@Test(expected=ColumnFullException.class) 
 	public void columnFull() throws ColumnFullException {
 		String columnFullMsg = "While testing for a full column";
 
@@ -69,7 +69,7 @@ public class Connect4GameStateTest {
 	}
 	
 	// test for correct use of BoardFullException
-	@PlayConnect4 
+	@Test 
 	public void boardFull() {
 		String boardFullMsg = "While testing for a full board";
 		
@@ -104,7 +104,7 @@ public class Connect4GameStateTest {
 	}	
 	
 	// test for different categories of win
-	@PlayConnect4 
+	@Test 
 	public void horizontalWin() {
 		String horizontalWinMsg = "While testing for a horizontal win";
 		
@@ -123,7 +123,7 @@ public class Connect4GameStateTest {
 		assertEquals(horizontalWinMsg + "Winner not red", RED, gs.getWinner());
 	}
 	
-	@PlayConnect4
+	@Test
 	public void verticalWin() {
 		String verticalWinMsg = "While testing for a vertical win";
 		
@@ -142,7 +142,7 @@ public class Connect4GameStateTest {
 		assertEquals(verticalWinMsg + "Winner not red", RED, gs.getWinner());		
 	}
 	
-	@PlayConnect4
+	@Test
 	public void backslashWin() {
 		String backslashWinMsg = "While testing for a backslash win";
 		
@@ -163,7 +163,7 @@ public class Connect4GameStateTest {
 		assertEquals(backslashWinMsg + "Winner not yellow", YELLOW, gs.getWinner());
 	}
 
-    @PlayConnect4
+    @Test
     public void backslashWinUpperRight() {
         String backslashWinMsg = "While testing for a backslash win (upper right)";
 
@@ -186,7 +186,7 @@ public class Connect4GameStateTest {
         assertEquals(backslashWinMsg + "Winner not yellow", YELLOW, gs.getWinner());
     }
 
-	@PlayConnect4
+	@Test
 	public void forwardslashWin() {
 		String forwardSlashWinMsg = "While testing for a forwardslash win";
 		
@@ -206,7 +206,7 @@ public class Connect4GameStateTest {
 		assertEquals(forwardSlashWinMsg + "Winner not red", RED, gs.getWinner());				
 	}
 
-    @PlayConnect4
+    @Test
     public void forwardslashWinUpperLeft() {
         String forwardSlashWinMsg = "While testing for a forwardslash win";
 
@@ -230,7 +230,7 @@ public class Connect4GameStateTest {
         assertEquals(forwardSlashWinMsg + "Winner not red", RED, gs.getWinner());
     }
 
-	@PlayConnect4
+	@Test
 	public void copy() {
 		String copyMsg = "While testing the copy method";
 

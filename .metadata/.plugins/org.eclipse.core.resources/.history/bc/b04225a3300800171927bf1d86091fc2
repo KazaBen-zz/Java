@@ -1,0 +1,9 @@
+package uk.ac.sheffield.com1003.objectville.interfaces;
+
+public class Test {
+	public static void main(String args[]){
+		ToyCar toycar = new ToyCar(2,4,6);
+		Toy toy = new ToyCar(1,3,5);
+		Car car = new ToyCar(4,8,16);
+	}
+}

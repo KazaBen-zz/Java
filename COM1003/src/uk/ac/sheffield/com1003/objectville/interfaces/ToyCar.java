@@ -19,14 +19,27 @@ public class ToyCar extends Car
 					implements Toy {
 	
 	private int ageSuitableFor;
-	
-	public ToyCar(int numWheels, int numDoors, int ageSuitableFor) {
+	private boolean battery;
+	public ToyCar(int numWheels, int numDoors, int ageSuitableFor,boolean battery) {
 		super(numWheels, numDoors);
 		this.ageSuitableFor = ageSuitableFor;
+		this.battery = battery;
 	}
 	
 	public int getAgeSuitableFor() {
 		return ageSuitableFor;
+	}
+	public String toString(){
+		return "age "+ this.getAgeSuitableFor()+" wheels "+ this.getNumWheels()+" doors " + this.getNumDoors();
+	}
+	public static void main(String args[]){
+		ToyCar carry = new ToyCar(4,2,7,true);
+		System.out.println(carry);
+	}
+
+	public boolean isBatteryPowered() {
+		// TODO Auto-generated method stub
+		return this.battery;
 	}
 }
 

@@ -19,7 +19,7 @@ import uk.ac.sheffield.com1003.EasyGraphics;
 
 public abstract class Shape {
 
-	protected int x, y;
+	public int x, y;
 	
 	public Shape(int x, int y) {
 		this.x = x;
